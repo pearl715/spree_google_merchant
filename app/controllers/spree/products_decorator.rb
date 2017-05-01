@@ -1,5 +1,5 @@
 Spree::ProductsController.class_eval do
   def google_merchant
-    @products = Product.active
+    @products = Spree::Product.active
   end
 end

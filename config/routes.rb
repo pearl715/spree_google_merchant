@@ -1,11 +1,7 @@
-Spree::Core::Engine.routes.append do
-  resources :products do 
-    collection do 
-      get :google_merchant
-    end
+Spree::Core::Engine.add_routes do
+  namespace :admin do
+    resource :google_merchants, only: [:update, :edit, :show]
   end
 
-  namespace :admin do
-    resource :google_merchants
-  end
+  match '/google_merchant', to: 'products#google_merchant', via: [:get, :post]
 end
